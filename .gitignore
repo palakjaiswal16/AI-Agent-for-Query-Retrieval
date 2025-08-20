@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+tmp/
+vector_store/
+uv.lock
+UNKNOWN.egg-info/
+AI_AGENT.egg-info/
+app.log

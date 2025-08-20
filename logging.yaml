@@ -1,0 +1,41 @@
+version: 1
+disable_existing_loggers: False
+
+# --- DEFINE THE FORMAT OF YOUR LOGS ---
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  detailed:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(module)s:%(lineno)d - %(message)s"
+
+# --- DEFINE WHERE THE LOGS GO (HANDLERS) ---
+handlers:
+  # Handler for printing logs to the console
+  console:
+    class: logging.StreamHandler
+    level: INFO
+    formatter: simple
+    stream: ext://sys.stdout
+
+  # Handler for writing logs to a file, with rotation
+  file:
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: detailed
+    filename: app.log  # This file will be created in your root directory
+    maxBytes: 10485760 # 10MB
+    backupCount: 5
+    encoding: utf8
+
+# --- CONFIGURE YOUR LOGGERS ---
+loggers:
+  # Logger for your specific application
+  app:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: no  # Prevents logs from being passed to the root logger
+
+# --- CONFIGURE THE ROOT LOGGER (FALLBACK) ---
+root:
+  level: INFO
+  handlers: [console]

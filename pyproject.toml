@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "AI_AGENT"
+version = "0.1.0"
+description = "AI Agent for Document Ingestion and Query Retrieval"
+authors = [
+    { name = "Palak Jaiswal", email = "your@email.com" }
+]
+dependencies = [
+    "fastapi>=0.103.0",
+    "uvicorn>=0.24.0",
+    "langchain>=0.2.1",
+    "cohere>=4.43",
+    "faiss-cpu>=1.7.4",
+    "PyPDF2>=3.0.0",
+    "pydantic>=2.5.0",
+    "langchain-community",
+    "langchain-cohere",
+    "pydantic-settings",
+    "pypdf",
+    "pyyaml>=6.0.2",
+    "python-multipart>=0.0.20",
+]
+
+# This section is added to fix the build error
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["app*"]
+exclude = ["tmp", "vector_store"]
