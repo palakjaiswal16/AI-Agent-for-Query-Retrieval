@@ -172,7 +172,7 @@ AI_AGENT/
 ├── .env                  # Environment variables
 ├── .venv/                # Virtual environment
 ├── app/                  # Main application package
-│   ├── __init__.py
+│   ├── _init_.py
 │   ├── core/             # Configuration and core settings
 │   ├── dependencies/     # Reusable logic (text processing, vector store)
 │   ├── endpoints/        # API route definitions
